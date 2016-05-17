@@ -4,17 +4,17 @@
  *
  **/
    /**
-     * Log gauge information
+     * Gauge
      *
-     * @param string $stat The gauge metric name
+     * @param string $gaugeName The gauge metric name
      * @param string $val value
      **/
-    function gauge($stat, $value) {
-       send(array($stat => "$value|g"));
+    function gauge($gaugeName, $value) {
+       send(array($gaugeName => "$value|g"));
     }
 
    /**
-     * Log timing information
+     * Timmer
      *
      * @param string $stats The metric to in log timing info
      * @param float $time The ellapsed time (ms) to log
@@ -24,7 +24,7 @@
         send(array($stat => "$time|ms"), $sampleRate);
     }
     /**
-     * Increments one or more stats counters
+     * Counter. Increments 
      *
      * @param string|array $stats The metric(s) to increment.
      * @param float|1 $sampleRate the rate (0-1) for sampling.
@@ -34,7 +34,7 @@
         updateStats($stats, 1, $sampleRate);
     }
     /**
-     * Decrements one or more stats counters.
+     * Counter. Decrements
      *
      * @param string|array $stats The metric(s) to decrement.
      * @param float|1 $sampleRate the rate (0-1) for sampling.
